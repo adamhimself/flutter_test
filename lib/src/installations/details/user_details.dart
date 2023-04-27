@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:taylor_janus/InstallationPage/InstallationDetails/user_data.dart';
+import 'package:taylor_janus/src/installations/details/user_data.dart';
 
 class UserDetails extends StatefulWidget {
   final User user;
@@ -42,12 +42,10 @@ class _UserDetailsState extends State<UserDetails>
     return FadeTransition(
       opacity: _animation,
       child: Scaffold(
-        appBar: AppBar(
-          title: Text(widget.user.name),
-        ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Text(widget.user.name),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(

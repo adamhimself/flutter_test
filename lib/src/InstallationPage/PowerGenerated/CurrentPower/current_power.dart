@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:gauges/gauges.dart';
-import 'package:taylor_janus/CloudAnimation/cloud.dart';
 
 class CurrentPower extends StatefulWidget {
   const CurrentPower({Key? key}) : super(key: key);

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:taylor_janus/InstallationPage/TotalSavings/carbondioxide_saved.dart';
-import 'package:taylor_janus/InstallationPage/TotalSavings/money_saved.dart';
+import 'package:taylor_janus/src/installations/total_savings/carbondioxide_saved.dart';
+import 'package:taylor_janus/src/installations/total_savings/money_saved.dart';
 
 class SavingsPage extends StatefulWidget {
   const SavingsPage({Key? key}) : super(key: key);

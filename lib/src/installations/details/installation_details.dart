@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:taylor_janus/InstallationPage/InstallationDetails/user_data.dart';
-import 'package:taylor_janus/InstallationPage/InstallationDetails/user_details.dart';
+import 'package:taylor_janus/src/installations/details/user_data.dart';
+import 'package:taylor_janus/src/installations/details/user_details.dart';
 
 class InstallationDetails extends StatefulWidget {
   const InstallationDetails({Key? key}) : super(key: key);

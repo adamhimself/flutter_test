@@ -1,9 +1,8 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:taylor_janus/InstallationPage/PowerGenerated/CurrentPower/current_power.dart';
-import 'package:taylor_janus/InstallationPage/PowerGenerated/time_period_view.dart';
+import 'package:taylor_janus/src/installations/power_generated/current_power/current_power.dart';
 
-import '../../resources/app_colors.dart';
+import '../../../resources/app_colors.dart';
 
 class PowerGeneratedChart extends StatefulWidget {
   const PowerGeneratedChart({super.key});
@@ -60,28 +59,12 @@ class PowerGeneratedChartState extends State<PowerGeneratedChart> {
 
   Widget _buildChartView(String text) {
     return AspectRatio(
-      aspectRatio: 1.23,
+      aspectRatio: 1.0,
       child: Stack(
         children: <Widget>[
           Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              const SizedBox(
-                height: 37,
-              ),
-              const Text(
-                'Power generated',
-                style: TextStyle(
-                  color: AppColors.primary,
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 2,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(
-                height: 37,
-              ),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.only(right: 16, left: 6),
