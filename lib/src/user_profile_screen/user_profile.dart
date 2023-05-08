@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:taylor_janus/src/user_profile/settings_page.dart';
+import 'package:taylor_janus/src/user_profile_screen/settings_screen.dart';
 
-class UserProfile extends StatelessWidget {
-  const UserProfile({Key? key}) : super(key: key);
+class UserProfileScreen extends StatelessWidget {
+  const UserProfileScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

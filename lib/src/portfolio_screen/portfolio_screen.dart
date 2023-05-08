@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:taylor_janus/src/user_profile/user_profile.dart';
-import '../installations/installation_page.dart';
+import 'package:taylor_janus/src/user_profile_screen/user_profile.dart';
 
-class Portfolio extends StatefulWidget {
-  const Portfolio({Key? key}) : super(key: key);
+import '../installation_screen/installation_screen.dart';
+
+class PortfolioScreen extends StatefulWidget {
+  const PortfolioScreen({Key? key}) : super(key: key);
 
   @override
-  PortfolioState createState() => PortfolioState();
+  PortfolioScreenState createState() => PortfolioScreenState();
 }
 
-class PortfolioState extends State<Portfolio> {
+class PortfolioScreenState extends State<PortfolioScreen> {
   final List<String> installationList = [
     'Installation 1',
     'Installation 2',
@@ -25,30 +26,27 @@ class PortfolioState extends State<Portfolio> {
 
   void _filterInstallations(String searchText) {
     List<String> filteredList = [];
-    installationList.forEach((installation) {
+    for (var installation in installationList) {
       if (installation.toLowerCase().contains(searchText.toLowerCase())) {
         filteredList.add(installation);
       }
-    });
+    }
     setState(() {
       _filteredInstallations = filteredList;
-      _showCards = filteredList.isNotEmpty;
     });
   }
 
   TextEditingController _searchController = TextEditingController();
   List<String> _filteredInstallations = [];
-  bool _showCards = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).primaryColor,
         title: Text(
           'Portfolio',
-          style: TextStyle(
-            fontSize: 16.0,
-          ),
+          style: Theme.of(context).textTheme.titleMedium,
         ),
         centerTitle: true,
         actions: [
@@ -56,52 +54,45 @@ class PortfolioState extends State<Portfolio> {
             icon: Icon(Icons.person_2),
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return const UserProfile();
+                return const UserProfileScreen();
               }));
             },
           )
         ],
       ),
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Colors.blue, Colors.purple],
-          ),
-        ),
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextField(
-                controller: _searchController,
-                decoration: InputDecoration(
-                  hintText: 'Search installations...',
-                  prefixIcon: Icon(Icons.search),
-                ),
-                onChanged: (searchText) {
-                  _filterInstallations(searchText);
-                },
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              controller: _searchController,
+              decoration: InputDecoration(
+                hintText: 'Search..',
+                prefixIcon: Icon(Icons.search),
               ),
+              onChanged: (searchText) {
+                _filterInstallations(searchText);
+              },
             ),
-            Expanded(
-                child: ListView.builder(
-                    itemCount: _filteredInstallations.length,
-                    itemBuilder: (context, index) {
-                      final item = _filteredInstallations[index];
-                      return ListTile(
-                          title: Text(item),
-                          leading: Icon(Icons.list),
-                          subtitle: Text("Subtitle of list item"),
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const InstallationPage(),
-                            ));
-                          });
-                    })),
-          ],
-        ),
+          ),
+          Expanded(
+              child: ListView.builder(
+                  itemCount: _filteredInstallations.length,
+                  itemBuilder: (context, index) {
+                    final item = _filteredInstallations[index];
+                    return ListTile(
+                        textColor: Colors.black,
+                        tileColor: Colors.white,
+                        title: Text(item),
+                        leading: Icon(Icons.list),
+                        subtitle: Text("Subtitle of list item"),
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const InstallationScreen(),
+                          ));
+                        });
+                  })),
+        ],
       ),
     );
   }
